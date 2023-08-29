@@ -54,6 +54,9 @@ The Argocd Server  can be reached here https://20.23.62.190/applications
 
 ![Screenshot](screenshots/argocd.png)
 
+Argocd Deployed the manifests referenced in the github repository
+
+![Screenshot](screenshots/argocd2.png)
 
 ### CiCd - Continuous integration and deployment
 
@@ -86,6 +89,7 @@ Screenshots of the Home page and Health page of the API
 
 #### TODO (other things i would have done)
 - Setup Ingress with nginx
+- Add Liveliness and Readiness health checks
 - Setup Image updater with ArgoCD (for automatically pulling images)
 - Store docker images on ACR
 - Connect a domain for this
