@@ -44,6 +44,9 @@ curl -X DELETE http://20.76.7.0/items/1
 ```
 ### Gitops
 For GitOps , i used ArgoCD . 
+
+The `setup.sh` was used to setup argocd and create the required namespaces locally
+
 Argo CD is a Kubernetes controller, responsible for continuously monitoring all running applications and comparing their live state to the desired state specified in the Git repository.
 
 The Argocd Server  can be reached here https://20.23.62.190/applications (please note that this is on Https)
