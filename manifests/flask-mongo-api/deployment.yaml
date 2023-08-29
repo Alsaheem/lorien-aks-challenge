@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-mongo-api
-          image: alsaheem/flask-mongo-api
+          image: alsaheem/flask-mongo-api:latest
           envFrom:
             - configMapRef:
                 name: flask-mongo-api
@@ -26,3 +26,16 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 20
+

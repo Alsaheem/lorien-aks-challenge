@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/darey-io/kafka.git
+    repoURL: https://github.com/Alsaheem/lorien-aks-challenge.git
     targetRevision: HEAD
     path: manifests/flask-mongo-api/
   destination:
