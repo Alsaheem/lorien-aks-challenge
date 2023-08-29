@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-mongo-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-mongo-api
+  template:
+    metadata:
+      labels:
+        app: flask-mongo-api
+    spec:
+      containers:
+        - name: flask-mongo-api
+          image: alsaheem/flask-mongo-api
+          envFrom:
+            - configMapRef:
+                name: flask-mongo-api
+            - secretRef:
+                name: flask-mongo-api
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5000
