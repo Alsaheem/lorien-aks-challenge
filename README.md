@@ -46,7 +46,7 @@ curl -X DELETE http://20.76.7.0/items/1
 For GitOps , i used ArgoCD . 
 Argo CD is a Kubernetes controller, responsible for continuously monitoring all running applications and comparing their live state to the desired state specified in the Git repository.
 
-The Argocd Server  can be reached here https://20.23.62.190/applications
+The Argocd Server  can be reached here https://20.23.62.190/applications (please note that this is on Https)
 
 - Argocd Server : https://20.23.62.190/applications
 - Argocd Username : admin
@@ -57,6 +57,20 @@ The Argocd Server  can be reached here https://20.23.62.190/applications
 Argocd Deployed the manifests referenced in the github repository
 
 ![Screenshot](screenshots/argocd2.png)
+
+### Terraform Infrastructure - Deployment to Azure
+
+The infrastructure was created using terraform and used to deploy the resources to Azure
+
+The terraform state backend was stored on a azure storage account in order to keep track of the current state of the infrastructure
+
+Terrraform was used to create the following resources on Azure
+
+- A dedicated Resource group for the deployment 
+- An Azure Container Registry for storing the images
+- Azure Kubernetes Service (AKS) for deploying the kubernetes services.
+- The Providers used were properly versioned and kept in constraint
+- The variables needed for the infrastructure was given in a terraform.tfvars filr
 
 ### CiCd - Continuous integration and deployment
 
@@ -89,7 +103,6 @@ Screenshots of the Home page and Health page of the API
 
 #### TODO (other things i would have done)
 - Setup Ingress with nginx
-- Add Liveliness and Readiness health checks
 - Setup Image updater with ArgoCD (for automatically pulling images)
 - Store docker images on ACR
 - Connect a domain for this
